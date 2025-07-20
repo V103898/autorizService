@@ -9,12 +9,14 @@ import ru.netology.autorizservice.exception.UnauthorizedUser;
 public class ExceptionHandler {
     @org.springframework.web.bind.annotation.ExceptionHandler(InvalidCredentials.class)
     public ResponseEntity<String> handleInvalidCredentials(InvalidCredentials e) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body("Error: " + e.getMessage() + ". Please check your credentials and try again.");
     }
 
     @org.springframework.web.bind.annotation.ExceptionHandler(UnauthorizedUser.class)
     public ResponseEntity<String> handleUnauthorizedUser(UnauthorizedUser e) {
         System.out.println("Unauthorized user: " + e.getMessage());
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body("Error: " + e.getMessage() + ". Access denied.");
     }
 }

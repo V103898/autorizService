@@ -4,7 +4,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.netology.autorizservice.model.Authorities;
 import ru.netology.autorizservice.service.AuthorizationService;
-
 import java.util.List;
 
 @RestController
@@ -16,7 +15,9 @@ public class AuthorizationController {
     }
 
     @GetMapping("/authorize")
-    public List<Authorities> getAuthorities(@RequestParam("user") String user, @RequestParam("password") String password) {
+    public List<Authorities> getAuthorities(
+            @RequestParam(value = "user", required = false) String user,
+            @RequestParam(value = "password", required = false) String password) {
         return service.getAuthorities(user, password);
     }
 }
