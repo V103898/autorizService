@@ -1,0 +1,13 @@
+package ru.netology.autorizservice;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class AutorizServiceApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}
